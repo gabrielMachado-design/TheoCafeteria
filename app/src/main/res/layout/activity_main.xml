@@ -1,5 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/fragment_container"
+<LinearLayout android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/coffe_primary">
+
+        <TextView
+            android:text="☕"
+            android:textColor="@color/background"
+            android:textSize="32sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+
+            android:layout_marginTop="30dp"
+            android:id="@+id/btnCombos"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_category_heigth"
+            android:backgroundTint="@color/coffe_primary"
+            android:text="Combos"
+            android:gravity="clip_horizontal"
+            android:textAllCaps="false"
+            android:textColor="@color/background" />
+
+        <Button
+            android:gravity="clip_horizontal"
+            android:id="@+id/btnSalgados"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_category_heigth"
+            android:backgroundTint="@color/coffe_primary"
+            android:text="Salgados"
+            android:textAllCaps="false"
+            android:textColor="@color/background" />
+
+        <Button
+            android:gravity="clip_horizontal"
+            android:id="@+id/btnDoces"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_category_heigth"
+
+            android:backgroundTint="@color/coffe_primary"
+            android:text="Doces"
+            android:textAllCaps="false"
+            android:textColor="@color/background" />
+
+        <Button
+            android:gravity="clip_horizontal"
+            android:id="@+id/btnQuentes"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_category_heigth"
+            android:backgroundTint="@color/coffe_primary"
+            android:text="Quentes"
+            android:textAllCaps="false"
+            android:textColor="@color/background" />
+
+        <Button
+            android:gravity="clip_horizontal"
+            android:id="@+id/btnGelados"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_category_heigth"
+            android:backgroundTint="@color/coffe_primary"
+            android:text="Gelados"
+            android:textAllCaps="false"
+            android:textColor="@color/background" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <FrameLayout
+            android:id="@+id/cartContainer"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <Button
+                android:backgroundTint="@color/coffe_secondary"
+                android:textColor="@color/background"
+                android:id="@+id/btnCart"
+                android:layout_width="75dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:text="🛒"
+                android:textSize="20sp"/>
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

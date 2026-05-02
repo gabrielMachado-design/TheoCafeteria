@@ -1,4 +1,4 @@
-package com.example.theocafeteria.ui
+package com.example.theocafeteria.ui.product
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,6 +10,7 @@ class ProductAdapter(
     private val products: List<Product>,
     private val onClick: (Product) -> Unit
 ) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
+
 
     inner class ViewHolder(val binding: ItemProductBinding)
         : RecyclerView.ViewHolder(binding.root)
@@ -35,4 +36,5 @@ class ProductAdapter(
     }
 
     override fun getItemCount() = products.size
+
 }

@@ -1,4 +1,4 @@
-package com.example.theocafeteria.ui.screens
+package com.example.theocafeteria.ui.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

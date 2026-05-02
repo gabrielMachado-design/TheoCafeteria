@@ -4,5 +4,6 @@ class Product (
 
     val id: Int,
     val name: String,
-    val price: Double
+    val price: Double,
+    val category: String
 )

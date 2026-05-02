@@ -1,6 +1,5 @@
-package com.example.theocafeteria.ui
+package com.example.theocafeteria.ui.theme
 
-import android.R.id.primary
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
