@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.theocafeteria.databinding.ActivityCheckoutBinding
 import com.example.theocafeteria.ui.SuccessActivity
+import com.example.theocafeteria.ui.common.CartItemAdapter
 import com.example.theocafeteria.viewmodel.CartViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -19,10 +20,18 @@ class CheckoutActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCheckoutBinding
     private val cartViewModel: CartViewModel by viewModels()
 
-    private lateinit var adapter: CheckoutAdapter
+    var adapter = CartItemAdapter(
+        onAdd = { cartViewModel.addItem(it) },
+        onRemove = { cartViewModel.removeItem(it) },
+        showControls = true
+    )
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
 
         binding = ActivityCheckoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -33,7 +42,7 @@ class CheckoutActivity : AppCompatActivity() {
     }
 
     private fun setupRecycler() {
-        adapter = CheckoutAdapter(
+        adapter = CartItemAdapter(
             onAdd = { product -> cartViewModel.addItem(product) },
             onRemove = { product -> cartViewModel.removeItem(product) }
         )

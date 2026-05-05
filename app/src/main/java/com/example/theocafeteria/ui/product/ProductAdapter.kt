@@ -27,8 +27,8 @@ class ProductAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val product = products[position]
 
+        holder.binding.imgProduct.setImageResource(product.imageRes)
         holder.binding.txtName.text = product.name
-
         holder.binding.txtPrice.text = product.price.toCurrency()
 
         holder.binding.btnAdd.setOnClickListener {

@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.theocafeteria.databinding.FragmentCartBinding
 import com.example.theocafeteria.ui.checkout.CheckoutActivity
+import com.example.theocafeteria.ui.common.CartItemAdapter
 import com.example.theocafeteria.viewmodel.CartViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -34,13 +35,10 @@ class CartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = CartAdapter(
-            onAdd = { product ->
-                cartViewModel.addItem(product)
-            },
-            onRemove = { product ->
-                cartViewModel.removeItem(product)
-            }
+        val adapter = CartItemAdapter(
+            onAdd = { cartViewModel.addItem(it) },
+            onRemove = { cartViewModel.removeItem(it) },
+            showControls = true
         )
 
         binding.recyclerCart.layoutManager = LinearLayoutManager(requireContext())

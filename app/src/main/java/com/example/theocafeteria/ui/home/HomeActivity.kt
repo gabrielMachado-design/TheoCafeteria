@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.example.theocafeteria.MainActivity
-import com.example.theocafeteria.ui.theme.TheoCafeteriaTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,18 +14,15 @@ class HomeActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            TheoCafeteriaTheme {
-
-                HomeScreen {
-                    goToMain()
-                }
-
+            HomeScreen {
+                goToMain()
             }
         }
     }
 
     private fun goToMain() {
-        startActivity(Intent(this, MainActivity::class.java))
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
         finish()
     }
 }

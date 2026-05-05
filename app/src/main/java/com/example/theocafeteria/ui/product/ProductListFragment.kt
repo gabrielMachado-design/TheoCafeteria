@@ -18,7 +18,6 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class ProductListFragment : Fragment() {
 
-    private lateinit var badge: BadgeDrawable
 
     private val cartViewModel: CartViewModel by activityViewModels()
 

@@ -41,7 +41,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupClicks() {
-        binding.btnCombos.setOnClickListener { openCategory("combos") }
         binding.btnSalgados.setOnClickListener { openCategory("salgados") }
         binding.btnDoces.setOnClickListener { openCategory("doces") }
         binding.btnQuentes.setOnClickListener { openCategory("quentes") }
