@@ -47,7 +47,6 @@ class CartRepository @Inject constructor() {
         _items.value = emptyList()
     }
 
-    // 🔥 NOVO
     fun getTotal(): Double {
         return _items.value.sumOf { it.product.price * it.quantity }
     }
