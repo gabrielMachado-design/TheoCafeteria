@@ -14,6 +14,8 @@
         android:theme="@style/Theme.TheoCafeteria">
 
         <activity android:name=".MainActivity" />
+        <activity android:name=".ui.checkout.CheckoutActivity"/>
+        <activity android:name=".ui.SuccessActivity"/>
 
 
         <activity android:name=".ui.home.HomeActivity"

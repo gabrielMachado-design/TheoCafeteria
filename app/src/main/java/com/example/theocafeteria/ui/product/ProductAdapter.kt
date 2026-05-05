@@ -5,12 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.theocafeteria.data.model.Product
 import com.example.theocafeteria.databinding.ItemProductBinding
+import com.example.theocafeteria.extensions.toCurrency
 
 class ProductAdapter(
     private val products: List<Product>,
     private val onClick: (Product) -> Unit
 ) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
-
 
     inner class ViewHolder(val binding: ItemProductBinding)
         : RecyclerView.ViewHolder(binding.root)
@@ -28,7 +28,8 @@ class ProductAdapter(
         val product = products[position]
 
         holder.binding.txtName.text = product.name
-        holder.binding.txtPrice.text = "R$ ${product.price}"
+
+        holder.binding.txtPrice.text = product.price.toCurrency()
 
         holder.binding.btnAdd.setOnClickListener {
             onClick(product)
@@ -36,5 +37,4 @@ class ProductAdapter(
     }
 
     override fun getItemCount() = products.size
-
 }

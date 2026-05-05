@@ -1,27 +1,30 @@
-package com.example.theocafeteria.ui.cart
+package com.example.theocafeteria.ui.checkout
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.compose.foundation.gestures.snapping.SnapPosition.Center.position
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.theocafeteria.data.model.CartItem
 import com.example.theocafeteria.data.model.Product
 import com.example.theocafeteria.databinding.ItemCartBinding
+import com.example.theocafeteria.databinding.ItemCheckoutBinding
 import com.example.theocafeteria.extensions.toCurrency
 import java.text.NumberFormat
 import java.util.Locale
 
-class CartAdapter(
+
+class CheckoutAdapter(
     private val onAdd: (Product) -> Unit,
     private val onRemove: (Product) -> Unit
-) : ListAdapter<CartItem, CartAdapter.ViewHolder>(DiffCallback()) {
+) : ListAdapter<CartItem, CheckoutAdapter.ViewHolder>(DiffCallback()) {
 
-    inner class ViewHolder(val binding: ItemCartBinding)
+    inner class ViewHolder(val binding: ItemCheckoutBinding)
         : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemCartBinding.inflate(
+        val binding = ItemCheckoutBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -33,15 +36,11 @@ class CartAdapter(
         val item = getItem(position)
 
 
-
         holder.binding.txtName.text = item.product.name
         holder.binding.txtPrice.text = item.product.price.toCurrency()
         holder.binding.txtQuantity.text = "x${item.quantity}"
 
         holder.binding.btnAdd.setOnClickListener {
-            it.animate().scaleX(1.2f).scaleY(1.2f).setDuration(100).withEndAction {
-                it.animate().scaleX(1f).scaleY(1f).duration = 100
-            }
             onAdd(item.product)
         }
 

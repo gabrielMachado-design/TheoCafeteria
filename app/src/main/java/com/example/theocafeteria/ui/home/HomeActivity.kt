@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.core.content.ContextCompat.startActivity
 import com.example.theocafeteria.MainActivity
 import com.example.theocafeteria.ui.theme.TheoCafeteriaTheme
 import dagger.hilt.android.AndroidEntryPoint

@@ -7,14 +7,26 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text="Seu pedido 🛒"
+        android:id="@+id/btnBack"
+        android:text="← Voltar"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/coffe_primary"
+        android:padding="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:minWidth="48dp"/>
+
+    <TextView
+        android:text="Resumo do Pedido ☕"
         android:textSize="22sp"
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerCart"
+        android:id="@+id/recyclerCheckout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
@@ -29,7 +41,7 @@
 
     <Button
         android:id="@+id/btnFinish"
-        android:text="Finalizar Pedido"
+        android:text="Confirmar Pedido"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>

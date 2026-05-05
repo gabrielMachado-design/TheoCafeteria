@@ -56,8 +56,7 @@ class MainActivity : AppCompatActivity() {
 
     @OptIn(ExperimentalBadgeUtils::class)
     private fun setupBadge() {
-        // Usamos post para garantir que o layout foi medido antes de anexar o badge
-        binding.cartContainer.post {
+
             badge = BadgeDrawable.create(this)
             badge.isVisible = false
             badge.number = 0
@@ -71,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                     .commit()
             }
 
-            // Ajuste fino de posição (pode precisar de ajustes dependendo do dispositivo)
+
             badge.verticalOffset = 15
             badge.horizontalOffset = 15
 
@@ -82,18 +81,16 @@ class MainActivity : AppCompatActivity() {
             )
             Log.d("CART_TEST", "Badge anexado ao btnCart")
         }
-    }
+
 
     private fun observeCart() {
         lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                cartViewModel.cartCount.collect { count ->
-                    Log.d("CART_TEST", "Contador alterado: $count")
-                    if (::badge.isInitialized) {
-                        badge.number = count
-                        badge.isVisible = count > 0
-                    }
-                }
+            cartViewModel.state.collect { state ->
+
+                val count = state.items.sumOf { it.quantity }
+
+                badge.number = count
+                badge.isVisible = count > 0
             }
         }
     }
