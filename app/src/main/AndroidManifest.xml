@@ -18,7 +18,9 @@
         <activity android:name=".ui.SuccessActivity"/>
 
 
+
         <activity android:name=".ui.home.HomeActivity"
+            android:theme="@style/Theme.TheoCafeteria"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

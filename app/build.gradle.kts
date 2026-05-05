@@ -59,7 +59,7 @@ dependencies {
     implementation(libs.androidx.recyclerview)
     implementation(libs.google.material)
     implementation(libs.androidx.fragment.ktx)
-    implementation(libs.androidx.core.splashscreen)
+    implementation(libs.core.splashscreen)
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
